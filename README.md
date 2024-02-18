@@ -5,3 +5,5 @@ https://developer.android.com/ ,
 https://www.youtube.com/watch?v=FROxASBWtHE (video sahibinin LinkedIn adresi: https://www.linkedin.com/in/cemreonur/)
 
 Kodda kullanılan teknolojiler/yapılar : Room , viewBinding, diffUtil, MVVM, Livedata, Coroutines,  
+
+Kodda kullanılmayanlar: Dependency Injection, Testing 
