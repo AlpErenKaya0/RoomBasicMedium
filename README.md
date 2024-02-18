@@ -6,4 +6,4 @@ https://www.youtube.com/watch?v=FROxASBWtHE (video sahibinin LinkedIn adresi: ht
 
 Kodda kullanılan teknolojiler/yapılar : Room , viewBinding, diffUtil, MVVM, Livedata, Coroutines,  
 
-Kodda kullanılmayanlar: Dependency Injection, Testing 
+Kodda kullanılmayanlar: Dependency Injection, DataBinding Testing 
