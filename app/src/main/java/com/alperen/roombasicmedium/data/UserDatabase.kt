@@ -7,9 +7,8 @@ import androidx.room.RoomDatabase
 @Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
-
+    //2. bir tablo kullanılıyorsa, buraya Dao'sunun eklenmesi yeterli olacaktır
     companion object {
-        // Olası bir durumda UserDatabase patlamasın diye volatile
         @Volatile
         private var INSTANCE: UserDatabase? = null
 

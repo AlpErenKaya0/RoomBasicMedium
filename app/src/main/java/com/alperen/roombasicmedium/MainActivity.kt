@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             val age = binding.ageText.text.toString().toIntOrNull()
 
             if (name.isNotEmpty() && surname.isNotEmpty() && age != null) {
-                val newUser = User(name, surname, age)
+                val newUser = User(0,name, surname, age)
                 userViewModel.addUser(newUser)
                 clearInputFields()
 
