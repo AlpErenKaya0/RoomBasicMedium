@@ -12,8 +12,10 @@ abstract class UserDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: UserDatabase? = null
         private val lock = Any()
-        operator fun invoke() = INSTANCE?: synchronized(lock) {
-            INSTANCE
+        operator fun invoke(context: Context) = INSTANCE?: synchronized(lock) {
+            INSTANCE ?: makeDatabase(context).also {
+                INSTANCE = it
+            }
         }
         private fun makeDatabase (context: Context) = Room.databaseBuilder(
             context.applicationContext, UserDatabase::class.java,"user_database"
