@@ -11,21 +11,12 @@ abstract class UserDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: UserDatabase? = null
-
-        fun getDatabase(context: Context): UserDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
-            }
-            synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    UserDatabase::class.java,
-                    "user_database"
-                ).build()
-                INSTANCE = instance
-                return instance
-            }
+        private val lock = Any()
+        operator fun invoke() = INSTANCE?: synchronized(lock) {
+            INSTANCE
+        }
+        private fun makeDatabase (context: Context) = Room.databaseBuilder(
+            context.applicationContext, UserDatabase::class.java,"user_database"
+        ).build()
         }
     }
-}
